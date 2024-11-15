@@ -4,7 +4,7 @@ import userRouter from "./model/user/user.router"
 const app = express()
 app.use(json())
 app.use(cors({
-  origin:"http://localhost:3000",
+  origin:"https://fb-mocha-one.vercel.app",
   credentials:true
 }))
 app.get('/', (req, res) => {
