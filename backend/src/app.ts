@@ -4,7 +4,7 @@ import userRouter from "./model/user/user.router"
 const app = express()
 app.use(json())
 app.use(cors({
-  origin:"https://facebooks1.vercel.app/",
+  origin:"https://facebooks1.vercel.app",
   credentials:true
 }))
 app.get('/', (req, res) => {
